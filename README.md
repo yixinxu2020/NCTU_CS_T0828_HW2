@@ -27,6 +27,10 @@ img_name | label | left | top | width | height | right | bottom | img_width | im
 - Box coordinates must be in normalized xywh format (from 0 - 1). If your boxes are in pixels, divide x_center and width by image width, and y_center and height by image height.
 - Class numbers are zero-indexed (start from 0)
 ```
+8       0.4339622641509434      0.5892857142857143      0.07547169811320754     0.4642857142857143
+2       0.5283018867924528      0.5892857142857143      0.11320754716981132     0.4642857142857143
+```
+```
 Trainin_data
   +- train
     |	+- label 1
