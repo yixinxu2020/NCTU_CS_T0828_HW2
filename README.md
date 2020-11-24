@@ -30,17 +30,32 @@ img_name | label | left | top | width | height | right | bottom | img_width | im
 8       0.4339622641509434      0.5892857142857143      0.07547169811320754     0.4642857142857143
 2       0.5283018867924528      0.5892857142857143      0.11320754716981132     0.4642857142857143
 ```
+### Data_classes
+All images are placed in two folders：train & test. 
+
+All labels txt file are placed in one foldr.
+
+In order to observe the effect of our trained model more conveniently, we need to divide the train_dataset into training_dataset and validation_dataset. 
+
+So, firstly, we devide the train_dataset into training_dataset and validation_dataset. After deviding, the training_data becomes like this:
 ```
-Trainin_data
-  +- train
-    |	+- label 1
-    |	+- label 2
-    | 	+- label 3 ....(total 196 species labels )
-  +- val
-    |	+- label 1
-    |	+- label 2
-    |   +- label 3 ....(total 196 species labels )
+data
++- images
+|	+- train 
+|		 image 1
+|		 image 2 ... (total 30061 images)
+|	+- val	 	 
+|		 image 1
+|	 	 image 2 ... (total 3341 images )
++- labels
+|	+- train 
+|		 txt 1
+|		 txt 2 ... (total 30061 images)
+|	+- val	 	 
+|		 txt 1
+|	 	 txt 2 ... (total 3341 images )
 ```
+Among them, the ratio of training_dataset to validation_dataset is 9:1.
 ### Data augmentation
 Since there are 196 kinds of cars to be trained, the training data may not be enough to cause overfit. Therefore, before input data into the model, we can generate more data for the machine to learn by means of data augmentation. 
 ```
