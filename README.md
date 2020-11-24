@@ -16,12 +16,18 @@ Firstly, use the **construct_dataset.py** to read the **digitStruct.mat**, get t
 $ python3 construct_dataset.py
 ```
 And then, use the **getimgdata.py** to get the images width & height, merge w & h with img_bbox_data, get the all image data:
-
+```
+$ python3 getimgdata.py
+```
 img_name | label | left | top | width | height | right | bottom | img_width | img_height
 ------------ | ------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |
  | | | | | | | | | | | |
  
- Next, use the get_imgtxt.py and the data from the last step to get the labels informations corresponding to each image, saved as .txt format as labels_dataset. Because of using yolov5 , before training data, we neen to export the labels to YOLO format, like this:
+ Next, use the **get_imgtxt.py** and the data from the last step to get the labels informations corresponding to each image, saved as **.txt** format as labels_dataset. 
+ ```
+ $ python3 get_imgtxt.py
+ ```
+ Because of using yolov5 , before training data, we neen to export the labels to YOLO format, like this:
 - One row per object
 - Each row is class x_center y_center width height format.
 - Box coordinates must be in normalized xywh format (from 0 - 1). If your boxes are in pixels, divide x_center and width by image width, and y_center and height by image height.
@@ -37,7 +43,11 @@ All labels txt file are placed in one foldr.
 
 In order to observe the effect of our trained model more conveniently, we need to divide the train_dataset into training_dataset and validation_dataset. 
 
-So, firstly, we devide the train_dataset into training_dataset and validation_dataset. After deviding, the training_data becomes like this:
+So, firstly, we devide the train_dataset into training_dataset and validation_dataset by **classdataset.py**.
+```
+$ python3 classdataset.py
+```
+After deviding, the training_data becomes like this:
 ```
 data
 +- images
@@ -56,17 +66,8 @@ data
 |	 	 txt 2 ... (total 3341 images )
 ```
 Among them, the ratio of training_dataset to validation_dataset is 9:1.
-### Data augmentation
-Since there are 196 kinds of cars to be trained, the training data may not be enough to cause overfit. Therefore, before input data into the model, we can generate more data for the machine to learn by means of data augmentation. 
-```
-transforms.Compose([
-        transforms.Resize((450, 300)),
-        transforms.RandomHorizontalFlip(),
-        transforms.RandomRotation(15),
-        transforms.CenterCrop(size=224),
-        transforms.ToTensor(),
-        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-```
+
+
 ## Training
 ### Model architecture
 PyTorch provides several pre-trained models with different architectures. 
