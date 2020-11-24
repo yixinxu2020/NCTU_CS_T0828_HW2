@@ -16,8 +16,10 @@ Firstly, use the **construct_dataset.py** to read the **digitStruct.mat**, get t
 $ python3 construct_dataset.py
 ```
 And then, use the getimgdata.py to get the images width & height, merge w & h with img_bbox_data, get the all image data:
+
 img_name | label | left | top | width | height | right | bottom | img_width | img_height
------------- | ------------- |
+------------ | ------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |
+ | | | | | | | | | | | |
 ```
 Trainin_data
   +- train
