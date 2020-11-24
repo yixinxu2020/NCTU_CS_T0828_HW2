@@ -15,11 +15,17 @@ Firstly, use the **construct_dataset.py** to read the **digitStruct.mat**, get t
 ```
 $ python3 construct_dataset.py
 ```
-And then, use the getimgdata.py to get the images width & height, merge w & h with img_bbox_data, get the all image data:
+And then, use the **getimgdata.py** to get the images width & height, merge w & h with img_bbox_data, get the all image data:
 
 img_name | label | left | top | width | height | right | bottom | img_width | img_height
 ------------ | ------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |
  | | | | | | | | | | | |
+ 
+ Next, use the get_imgtxt.py and the data from the last step to get the labels informations corresponding to each image, saved as .txt format as labels_dataset. Because of using yolov5 , before training data, we neen to export the labels to YOLO format, like this:
+- One row per object
+- Each row is class x_center y_center width height format.
+- Box coordinates must be in normalized xywh format (from 0 - 1). If your boxes are in pixels, divide x_center and width by image width, and y_center and height by image height.
+- Class numbers are zero-indexed (start from 0)
 ```
 Trainin_data
   +- train
