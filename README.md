@@ -50,10 +50,10 @@ $ python3 classdataset.py
 After deviding, the training_data becomes like this:
 ```
 digit
-+- images
-|	+- train 
-|		 image 1
-|		 image 2 ... (total 30061 images)
+ +- images
+  | +- train 
+  |  image 1
+  |  image 2 ... (total 30061 images)
 |	+- val	 	 
 |		 image 1
 |	 	 image 2 ... (total 3341 images )
